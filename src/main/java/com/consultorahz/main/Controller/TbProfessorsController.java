@@ -27,4 +27,25 @@ public class TbProfessorsController {
     public ResponseEntity<TbProfessorsEntity> saveProffesor(@RequestBody TbProfessorsEntity tbProfessorsEntity){
         return new ResponseEntity(this.iTbProfessorsService.guardar(tbProfessorsEntity), HttpStatus.OK);
     }
+
+    @GetMapping(value="/professors/{idProfessor}")
+    public ResponseEntity<TbProfessorsEntity> getProffesorById(@PathVariable(name="idProfessor") Long tbProfessorsId){
+        return new ResponseEntity(this.iTbProfessorsService.buscarPorId(tbProfessorsId), HttpStatus.OK);
+
+    }
+
+    @PutMapping(value="/professors/{idProfessor}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TbProfessorsEntity> updateProffesorById(@RequestBody TbProfessorsEntity tbProfessorsEntity){
+        System.out.println(tbProfessorsEntity);
+        return new ResponseEntity(this.iTbProfessorsService.guardar(tbProfessorsEntity), HttpStatus.OK);
+
+    }
+
+    @DeleteMapping(value="/professors/{idProfessor}")
+    public ResponseEntity<Long> deleteProffesorById(@PathVariable(name="idProfessor") Long tbProfessorsId){
+        this.iTbProfessorsService.eliminarPorId(tbProfessorsId);
+        return new ResponseEntity(tbProfessorsId,HttpStatus.OK);
+    }
+
+
 }

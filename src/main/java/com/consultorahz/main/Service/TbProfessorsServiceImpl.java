@@ -29,7 +29,14 @@ public class TbProfessorsServiceImpl implements ITbProfessorsService{
     @Transactional
     public TbProfessorsEntity guardar(TbProfessorsEntity pe) {
         TbProfessorsEntity tmp = this.tbProfessorsRepository.save(pe);
-
         return tmp;
+    }
+
+
+
+    @Override
+    @Transactional
+    public void eliminarPorId(Long id) {
+        this.tbProfessorsRepository.deleteById(id);
     }
 }

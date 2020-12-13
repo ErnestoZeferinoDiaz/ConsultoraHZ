@@ -7,4 +7,5 @@ public interface ITbProfessorsService {
     public List<TbProfessorsEntity> buscarTodos();
     public TbProfessorsEntity buscarPorId(Long id);
     public TbProfessorsEntity guardar(TbProfessorsEntity pe);
+    public void eliminarPorId(Long id);
 }
