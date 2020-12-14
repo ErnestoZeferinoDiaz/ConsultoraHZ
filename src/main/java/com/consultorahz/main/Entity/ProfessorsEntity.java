@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="professors")
-public class TbProfessorsEntity implements Serializable {
+public class ProfessorsEntity implements Serializable {
     private Long profId;
     private String name;
     private String lastName;
